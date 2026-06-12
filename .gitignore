@@ -1,0 +1,63 @@
+# Environment
+.env
+.env.local
+.env.example
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Node
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Testing
+.pytest_cache/
+.coverage
+coverage/
+.tox/
+
+# Linting
+.mypy_cache/
+.ruff_cache/
+.ruff_cache/
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+data/*.json
+data/*.db
+data/*.sqlite
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Frontend build
+src/frontend/dist/
+src/frontend/.next/
+src/frontend/out/
+
+# Temporary
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+score.json

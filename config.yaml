@@ -1,0 +1,32 @@
+# Insurance Audit Sandbox 配置
+# 医保飞检规则演练沙盘配置文件
+
+database:
+  # SQLite 数据库文件路径（相对于项目根目录）
+  path: "data/sandbox.db"
+  # 演练记录保留条数（0 = 不限制）
+  retention_count: 100
+
+log_level: "INFO"  # DEBUG / INFO / WARNING / ERROR
+
+sandbox:
+  # 默认规则集 ID
+  default_rule_set: "zhongyao_injection_limit"
+  # 风险分数阈值（高风险）
+  risk_threshold_70: 70
+  # 风险分数阈值（极高风险）
+  risk_threshold_90: 90
+  # 默认报告格式
+  report_format: "pdf"  # pdf / docx
+
+api:
+  # API 服务端口
+  port: 8000
+  # API 服务 host
+  host: "0.0.0.0"
+  # 请求超时时间（秒）
+  timeout: 30
+
+frontend:
+  # 前端 API 调用基础 URL
+  api_base_url: "http://localhost:8000"

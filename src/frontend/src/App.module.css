@@ -1,0 +1,264 @@
+/* 全局移动端适配样式 */
+@media (max-width: 768px) {
+  /* 隐藏桌面端侧边栏/顶栏元素 */
+  .desktopNav {
+    display: none !important;
+  }
+
+  /* 移动端容器 */
+  .mobileContainer {
+    padding: 12px;
+  }
+
+  /* 移动端标题 */
+  .mobileTitle {
+    font-size: 18px !important;
+    line-height: 1.3;
+  }
+
+  .mobileSubtitle {
+    font-size: 12px !important;
+  }
+
+  /* 移动端卡片 */
+  .mobileCard {
+    padding: 12px !important;
+    margin-bottom: 12px;
+    border-radius: 8px !important;
+  }
+
+  /* 移动端表格横向滚动 */
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tableWrapper table {
+    min-width: 600px;
+    font-size: 12px;
+  }
+
+  .tableWrapper th,
+  .tableWrapper td {
+    padding: 8px 10px !important;
+    white-space: nowrap;
+  }
+
+  /* 移动端筛选栏 */
+  .mobileFilterBar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobileFilterBar .filterInput {
+    min-width: unset !important;
+    width: 100%;
+  }
+
+  .mobileFilterBar button {
+    width: 100%;
+    padding: 10px !important;
+  }
+
+  /* 移动端分页 */
+  .mobilePagination {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch !important;
+  }
+
+  .mobilePagination .paginationControls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mobilePagination .pageInput {
+    width: 48px !important;
+  }
+
+  /* 移动端按钮 */
+  .mobileBtn {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    width: 100%;
+  }
+
+  /* 移动端下载按钮组 */
+  .mobileDownloadBtns {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobileDownloadBtns button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 移动端摘要网格 */
+  .mobileSummaryGrid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* 移动端图表 */
+  .mobileChartContainer {
+    overflow-x: auto;
+  }
+
+  /* 移动端模态框 */
+  .mobilePreviewModal {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .mobilePreviewContent {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .mobilePreviewFrame {
+    width: 100% !important;
+    height: calc(100% - 50px) !important;
+  }
+
+  /* 汉堡菜单 */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .hamburgerLine {
+    width: 22px;
+    height: 2px;
+    background: #374151;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburgerOpen .hamburgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburgerOpen .hamburgerLine:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburgerOpen .hamburgerLine:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* 移动端抽屉导航 */
+  .mobileNavDrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 16px;
+  }
+
+  .mobileNavDrawerOpen {
+    transform: translateX(0);
+  }
+
+  .mobileNavOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .mobileNavHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 16px;
+  }
+
+  .mobileNavTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .mobileNavClose {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 4px;
+  }
+
+  .mobileNavItem {
+    display: block;
+    padding: 12px 8px;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+
+  .mobileNavItem:hover {
+    background: #f3f4f6;
+  }
+
+  .mobileNavItemActive {
+    background: #eff6ff;
+    color: #3b82f6;
+    font-weight: 500;
+  }
+}
+
+/* 移动端隐藏类 */
+@media (max-width: 768px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+}
+
+/* 桌面端隐藏汉堡菜单 */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .mobileNavDrawer,
+  .mobileNavOverlay {
+    display: none !important;
+  }
+}
+
+/* 平板适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 100% !important;
+    padding: 16px !important;
+  }
+
+  .filterBar {
+    flex-wrap: wrap;
+  }
+}

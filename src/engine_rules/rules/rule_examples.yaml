@@ -1,0 +1,98 @@
+# 内置示例规则集 — 用于验证规则引擎解析与执行
+# 版本: 0.1.0
+version: "0.1.0"
+updated_at: "2026-06-13"
+description: "医保飞检演练内置示例规则集，包含中药注射剂限制、耗材加价率超限、分解住院嫌疑三类规则"
+
+rules:
+  - rule_id: zy_injection_001
+    name: "中药注射剂超剂量预警"
+    category: "中药注射剂"
+    risk_score: 85
+    condition:
+      op: "and"
+      checks:
+        - field: "injection_type"
+          op: "eq"
+          value: "中药注射剂"
+        - field: "amount"
+          op: "gt"
+          value: 500
+
+  - rule_id: zy_injection_002
+    name: "中药注射剂适应症不符"
+    category: "中药注射剂"
+    risk_score: 90
+    condition:
+      op: "and"
+      checks:
+        - field: "injection_type"
+          op: "eq"
+          value: "中药注射剂"
+        - field: "procedure_code"
+          op: "in"
+          value: ["手术", "介入"]
+
+  - rule_id: material_markup_001
+    name: "耗材加价率超限"
+    category: "耗材管理"
+    risk_score: 80
+    condition:
+      field: "material_markup_rate"
+      op: "gt"
+      value: 0.15
+
+  - rule_id: material_markup_002
+    name: "高值耗材加价率警告"
+    category: "耗材管理"
+    risk_score: 70
+    condition:
+      field: "material_markup_rate"
+      op: "between"
+      value: [0.10, 0.15]
+
+  - rule_id: decomp_hospital_001
+    name: "分解住院嫌疑 — 手术当日出院"
+    category: "分解住院"
+    risk_score: 95
+    condition:
+      op: "and"
+      checks:
+        - field: "days_admitted"
+          op: "lt"
+          value: 2
+        - field: "procedure_code"
+          op: "in"
+          value: ["手术", "腔镜", "介入"]
+
+  - rule_id: decomp_hospital_002
+    name: "分解住院嫌疑 — 多次入院"
+    category: "分解住院"
+    risk_score: 88
+    condition:
+      field: "readmission_flag"
+      op: "eq"
+      value: true
+
+  - rule_id: drug_limit_001
+    name: "抗菌药物用量超限"
+    category: "药品管理"
+    risk_score: 75
+    condition:
+      op: "and"
+      checks:
+        - field: "category"
+          op: "eq"
+          value: "药品"
+        - field: "quantity"
+          op: "gt"
+          value: 100
+
+  - rule_id: pricing_001
+    name: "服务项目价格异常"
+    category: "收费规范"
+    risk_score: 60
+    condition:
+      field: "unit_price"
+      op: "gt"
+      value: 10000

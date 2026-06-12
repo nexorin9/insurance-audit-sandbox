@@ -1,0 +1,89 @@
+# 费用字段 Schema 定义
+# 用于验证生成的合成数据是否符合规范
+
+fields:
+  item_id:
+    type: string
+    format: uuid
+    required: true
+    description: 费用明细唯一标识符
+
+  category:
+    type: string
+    enum:
+      - 药品
+      - 耗材
+      - 手术
+      - 检查
+      - 床位
+    required: true
+    description: 费用类别
+
+  amount:
+    type: float
+    constraints:
+      gt: 0
+    required: true
+    description: 费用总金额（元）
+
+  unit_price:
+    type: float
+    constraints:
+      gte: 0
+    required: true
+    description: 单价（元）
+
+  quantity:
+    type: integer
+    constraints:
+      gt: 0
+    required: true
+    description: 数量
+
+  # 耗材类特有字段
+  material_markup_rate:
+    type: float
+    constraints:
+      gte: 0
+      lte: 1
+    required: false
+    category_scope:
+      - 耗材
+    description: 耗材加价率（0-1）
+
+  # 药品类特有字段
+  injection_type:
+    type: string
+    enum:
+      - 中药注射剂
+      - 西药注射剂
+      - null
+    required: false
+    category_scope:
+      - 药品
+    description: 注射剂类型
+
+  # 手术类特有字段
+  procedure_code:
+    type: string
+    required: false
+    category_scope:
+      - 手术
+    description: 手术操作编码
+
+  days_admitted:
+    type: integer
+    constraints:
+      gt: 0
+    required: false
+    category_scope:
+      - 手术
+      - 床位
+    description: 住院天数
+
+# 条件字段（内部使用，不暴露给用户）
+internal_fields:
+  _high_risk:
+    type: boolean
+    required: false
+    description: 是否为高风险项（仅用于数据合成标记）

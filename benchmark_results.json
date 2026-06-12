@@ -1,0 +1,102 @@
+{
+  "version": "0.1.0",
+  "timestamp": "2026-06-13 06:12:40.305065",
+  "benchmarks": [
+    {
+      "label": "fee_sample_50.json + 5 rules",
+      "item_count": 50,
+      "rule_count": 5,
+      "avg_ms": 0.915,
+      "p50_ms": 0.898,
+      "p95_ms": 0.998,
+      "p99_ms": 0.998,
+      "min_ms": 0.883,
+      "max_ms": 0.998,
+      "baseline": "PASS (≤500ms)"
+    },
+    {
+      "label": "fee_sample_50.json + 10 rules",
+      "item_count": 50,
+      "rule_count": 10,
+      "avg_ms": 1.181,
+      "p50_ms": 1.178,
+      "p95_ms": 1.198,
+      "p99_ms": 1.198,
+      "min_ms": 1.174,
+      "max_ms": 1.198,
+      "baseline": "N/A"
+    },
+    {
+      "label": "fee_sample_100.json + 5 rules",
+      "item_count": 100,
+      "rule_count": 5,
+      "avg_ms": 2.125,
+      "p50_ms": 2.099,
+      "p95_ms": 2.247,
+      "p99_ms": 2.247,
+      "min_ms": 2.073,
+      "max_ms": 2.247,
+      "baseline": "N/A"
+    },
+    {
+      "label": "fee_sample_100.json + 10 rules",
+      "item_count": 100,
+      "rule_count": 10,
+      "avg_ms": 2.77,
+      "p50_ms": 2.766,
+      "p95_ms": 2.911,
+      "p99_ms": 2.911,
+      "min_ms": 2.692,
+      "max_ms": 2.911,
+      "baseline": "PASS (≤1000ms)"
+    },
+    {
+      "label": "fee_sample_100.json + 20 rules",
+      "item_count": 100,
+      "rule_count": 20,
+      "avg_ms": 2.723,
+      "p50_ms": 2.704,
+      "p95_ms": 2.81,
+      "p99_ms": 2.81,
+      "min_ms": 2.694,
+      "max_ms": 2.81,
+      "baseline": "N/A"
+    },
+    {
+      "label": "1000 items + 5 rules",
+      "item_count": 1000,
+      "rule_count": 5,
+      "avg_ms": 20.363,
+      "p50_ms": 20.365,
+      "p95_ms": 20.546,
+      "p99_ms": 20.546,
+      "min_ms": 20.1,
+      "max_ms": 20.546,
+      "baseline": "N/A"
+    },
+    {
+      "label": "1000 items + 10 rules",
+      "item_count": 1000,
+      "rule_count": 10,
+      "avg_ms": 26.931,
+      "p50_ms": 26.907,
+      "p95_ms": 27.196,
+      "p99_ms": 27.196,
+      "min_ms": 26.676,
+      "max_ms": 27.196,
+      "baseline": "N/A"
+    },
+    {
+      "label": "1000 items + 20 rules",
+      "item_count": 1000,
+      "rule_count": 20,
+      "avg_ms": 27.608,
+      "p50_ms": 27.528,
+      "p95_ms": 28.563,
+      "p99_ms": 28.563,
+      "min_ms": 27.045,
+      "max_ms": 28.563,
+      "baseline": "PASS (≤5000ms)"
+    }
+  ]
+}
